@@ -8,7 +8,7 @@ const ConsultList = () => {
   const [cont, setconslt] = useState();
 
   const accept = async (cid) => {
-    const resp = await fetch(`http://localhost:9000/api/accept/${cid}`, {
+    const resp = await fetch(`https://fintech-backend-6.onrender.com/api/accept/${cid}`, {
       method: "put",
       headers: { 'Content-type': 'application/json' }
     })
@@ -24,7 +24,7 @@ const ConsultList = () => {
   }
   const getconsult = async () => {
 
-    const resp = await fetch(`http://localhost:9000/api/getconslt/${idk}`, {
+    const resp = await fetch(`https://fintech-backend-6.onrender.com/api/getconslt/${idk}`, {
       cache: "no-store", // <-- key fix, prevents 304
       headers: {
         "Cache-Control": "no-cache",

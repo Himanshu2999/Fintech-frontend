@@ -11,7 +11,7 @@ const Login = () => {
     const nav = useNavigate('')
     const login = async () => {
         const data = { uname, pass }
-        const resp = await fetch("http://localhost:9000/api/login", {
+        const resp = await fetch("https://fintech-backend-6.onrender.com/api/login", {
             method: "post",
             body: JSON.stringify(data),
             headers: { 'Content-type': 'application/json' }

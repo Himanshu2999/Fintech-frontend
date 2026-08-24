@@ -32,7 +32,7 @@ function Meeting() {
       aid: selectedAdvisor._id, adname: selectedAdvisor.name, uid: idk, uname: name,
       schld: `${selectedDate}'/'${monthOffset}'/2026' ${selectedSlot}`, msg: message, rid: `room${uuidv4().replace(/-/g, "").slice(0, 6)}`
     }
-    const resp = await fetch("http://localhost:9000/api/consult",
+    const resp = await fetch("https://fintech-backend-6.onrender.com/api/consult",
       {
         method: "post",
         body: JSON.stringify(data),
@@ -67,7 +67,7 @@ function Meeting() {
 
 
   const fetchadvisors = async () => {
-    const resp = await fetch("http://localhost:9000/api/getadvisall")
+    const resp = await fetch("https://fintech-backend-6.onrender.com/api/getadvisall")
     if (resp.ok) {
       let res = await resp.json();
       if (res.statuscode == 1) {

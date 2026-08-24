@@ -20,7 +20,7 @@ function OtherDetails({ usertype, name, email, pass, mobile, cpass, setflag }) {
     form.append("file", file)
     form.append("usertype", usertype)
   
-      const resp = await fetch("http://localhost:9000/api/creataccount", {
+      const resp = await fetch("https://fintech-backend-6.onrender.com/api/creataccount", {
         method: "post",
         body: form,
       })
@@ -42,7 +42,7 @@ function OtherDetails({ usertype, name, email, pass, mobile, cpass, setflag }) {
     form.append("file", file)
     form.append("special", special)
     form.append("exp", exp)
-      const resp = await fetch("http://localhost:9000/api/addadvisor", {
+      const resp = await fetch("https://fintech-backend-6.onrender.com/api/addadvisor", {
         method: "post",
         body: form,
       })

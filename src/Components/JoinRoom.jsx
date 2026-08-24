@@ -21,7 +21,7 @@ const JoinRoom = () => {
     useEffect(async() => {
 
         const room = prompt("Enter RoomID");
-        let resp = await fetch(`http://localhost:9000/api/verifyroom/${room}`)
+        let resp = await fetch(`https://fintech-backend-6.onrender.com/api/verifyroom/${room}`)
         if (resp.ok) {
             let res = await resp.json();
             if (res.statuscode == 1) {

@@ -18,7 +18,7 @@ const Consult = () => {
         setLoading(true);
         setError(null);
 
-        fetch(`http://localhost:9000/api/getconslt/${idk}`)
+        fetch(`https://fintech-backend-6.onrender.com/api/getconslt/${idk}`)
             .then((resp) => {
                 if (!resp.ok) {
                     setError(`Request failed with status ${resp.status}`);
