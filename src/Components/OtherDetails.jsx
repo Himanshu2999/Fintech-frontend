@@ -10,6 +10,7 @@ function OtherDetails({ usertype, name, email, pass, mobile, cpass, setflag }) {
     setflag(false)
   }
 
+  const fileInputRef = useRef(null);
   const creaccount = async () => {
     const form = new FormData();
     form.append("name", name)
