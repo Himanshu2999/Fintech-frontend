@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - Fintech</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Extra styles just for the dashboard page */
+
+    .dashboard-wrapper {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ---- Sidebar ---- */
+    .sidebar {
+      width: 230px;
+      background: white;
+      border-right: 1px solid #e5e5e5;
+      padding: 20px 0;
+    }
+
+    .sidebar .logo {
+      padding: 0 20px 20px;
+      border-bottom: 1px solid #eee;
+      margin-bottom: 15px;
+    }
+
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 20px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .sidebar-link.active {
+      background-color: #eef3ff;
+      color: #2f6df6;
+      font-weight: bold;
+      border-right: 3px solid #2f6df6;
+    }
+
+    .sidebar-link:hover {
+      background-color: #f5f5f5;
+    }
+
+    .upgrade-box {
+      margin: 20px;
+      padding: 15px;
+      background: #eef3ff;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .upgrade-box p {
+      font-size: 12px;
+      margin: 8px 0;
+    }
+
+    /* ---- Main content area ---- */
+    .main-content {
+      flex: 1;
+      background: #f9fafb;
+    }
+
+    .topbar {
+      background: white;
+      border-bottom: 1px solid #e5e5e5;
+      padding: 15px 25px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .avatar {
+      width: 36px;
+      height: 36px;
+      background: #ddd;
+      border-radius: 50%;
+    }
+
+    .page-body {
+      padding: 25px;
+    }
+
+    .welcome-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .welcome-row h1 {
+      font-size: 22px;
+    }
+
+    .welcome-row p {
+      color: #888;
+      font-size: 14px;
+    }
+
+    /* Dashboard cards */
+    .dash-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .dash-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid #eee;
+    }
+
+    .dash-card h3 {
+      font-size: 15px;
+      margin-bottom: 5px;
+    }
+
+    .dash-card p {
+      font-size: 13px;
+      color: #888;
+    }
+
+    /* Quick access grid */
+    .quick-access-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .quick-access-card {
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      border: 1px solid #eee;
+      text-align: left;
+    }
+
+    .quick-access-card .card-icon {
+      width: 36px;
+      height: 36px;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .quick-access-card h4 {
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .quick-access-card p {
+      font-size: 11px;
+      color: #999;
+    }
+
+    /* Overview + activity two-column layout */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .overview-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 14px;
+    }
+
+    .activity-item {
+      display: flex;
+      gap: 10px;
+      padding: 10px 0;
+      font-size: 13px;
+    }
+
+    .activity-item span.time {
+      display: block;
+      color: #999;
+      font-size: 11px;
+    }
+
+    .tip-box {
+      background: #eef3ff;
+      border-radius: 10px;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .badge {
+      background: #ecfdf3;
+      color: #16a34a;
+      font-size: 11px;
+      font-weight: bold;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    /* Stack sidebar on small screens */
+    @media (max-width: 800px) {
+      .dashboard-wrapper {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+      }
+      .dash-row,
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dashboard-wrapper">
+
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="sidebar">
+      <div class="logo">
+        <span class="logo-icon">F</span>
+        Fintech
+      </div>
+
+      <nav>
+        <a href="#" class="sidebar-link active">🏠 Dashboard</a>
+        <a href="#" class="sidebar-link">👤 My Profile</a>
+        <a href="#" class="sidebar-link">📋 Financial Profile</a>
+        <a href="#" class="sidebar-link">📈 AI Financial Analysis</a>
+        <a href="#" class="sidebar-link">✨ AI Recommendations</a>
+        <a href="#" class="sidebar-link">🔍 Find Advisor</a>
+        <a href="#" class="sidebar-link">📅 Book Consultation</a>
+        <a href="#" class="sidebar-link">🕓 Consultation History</a>
+        <a href="#" class="sidebar-link">📄 Reports</a>
+        <a href="#" class="sidebar-link">🔔 Notifications</a>
+        <a href="#" class="sidebar-link">⚙️ Settings</a>
+      </nav>
+
+      <div class="upgrade-box">
+        <strong style="font-size: 13px;">Upgrade to Premium</strong>
+        <p>Get advanced insights and priority support.</p>
+        <button class="btn btn-primary" style="width: 100%;">Upgrade Now</button>
+      </div>
+    </aside>
+
+    <!-- ============ MAIN CONTENT ============ -->
+    <div class="main-content">
+
+      <!-- Top bar -->
+      <div class="topbar">
+        <span>🔔</span>
+        <div class="user-info">
+          <div class="avatar"></div>
+          <div>
+            <strong style="font-size: 13px; display: block;">Rahul Sharma</strong>
+            <span style="font-size: 11px; color: #999;">Customer</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-body">
+
+        <!-- Welcome message -->
+        <div class="welcome-row">
+          <div>
+            <h1>Welcome back, Rahul! 👋</h1>
+            <p>Take control of your finances and grow your wealth.</p>
+          </div>
+          <button class="btn btn-primary">⚡ Quick Actions</button>
+        </div>
+
+        <!-- Journey card + upcoming consultation -->
+        <div class="dash-row">
+          <div class="dash-card">
+            <h3>Your Financial Journey Starts Here</h3>
+            <p>Complete your financial profile to get personalized AI insights and expert recommendations.</p>
+            <div style="margin-top: 15px; display: flex; gap: 10px;">
+              <button class="btn btn-primary">Complete Profile</button>
+              <button class="btn btn-outline">Learn More</button>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <div style="display: flex; justify-content: space-between;">
+              <h3>Upcoming Consultation</h3>
+              <a href="#" style="font-size: 12px; color: #2f6df6;">View All</a>
+            </div>
+
+            <div style="display: flex; gap: 10px; margin-top: 15px;">
+              <div class="avatar"></div>
+              <div>
+                <div style="display: flex; justify-content: space-between; gap: 10px;">
+                  <strong style="font-size: 14px;">Neha Verma</strong>
+                  <span class="badge">Confirmed</span>
+                </div>
+                <p style="font-size: 12px;">Financial Advisor</p>
+                <p style="font-size: 12px; margin-top: 5px;">📅 20 May 2025, Tuesday</p>
+                <p style="font-size: 12px;">🕐 11:00 AM – 12:00 PM</p>
+              </div>
+            </div>
+
+            <button class="btn btn-outline" style="width: 100%; margin-top: 15px;">Join Consultation Room</button>
+          </div>
+        </div>
+
+        <!-- Quick access -->
+        <h3 style="font-size: 15px; margin-bottom: 12px;">Quick Access</h3>
+        <div class="quick-access-grid">
+          <button class="quick-access-card">
+            <div class="card-icon">📈</div>
+            <h4>AI Financial Analysis</h4>
+            <p>Analyze your financial health</p>
+          </button>
+          <button class="quick-access-card">
+            <div class="card-icon">✨</div>
+            <h4>AI Recommendations</h4>
+            <p>Get personalized advice</p>
+          </button>
+          <button class="quick-access-card">
+            <div class="card-icon">🔍</div>
+            <h4>Find Advisor</h4>
+            <p>Connect with experts</p>
+          </button>
+          <button class="quick-access-card">
+            <div class="card-icon">📅</div>
+            <h4>Book Consultation</h4>
+            <p>Schedule your session</p>
+          </button>
+          <button class="quick-access-card">
+            <div class="card-icon">📄</div>
+            <h4>View Reports</h4>
+            <p>Access your reports</p>
+          </button>
+          <button class="quick-access-card">
+            <div class="card-icon">🔔</div>
+            <h4>Notifications</h4>
+            <p>Stay updated with alerts</p>
+          </button>
+        </div>
+
+        <!-- Financial overview + recent activity -->
+        <div class="two-col">
+          <div class="dash-card">
+            <div style="display: flex; justify-content: space-between;">
+              <h3>Financial Health Overview</h3>
+              <span class="badge">Good</span>
+            </div>
+
+            <div class="overview-row">
+              <span>Financial Health Score</span>
+              <strong style="color: #16a34a;">72 / 100</strong>
+            </div>
+            <div class="overview-row">
+              <span>Monthly Income</span>
+              <strong>₹1,25,000</strong>
+            </div>
+            <div class="overview-row">
+              <span>Monthly Expenses</span>
+              <strong>₹70,500</strong>
+            </div>
+
+            <a href="#" style="font-size: 12px; color: #2f6df6; display: block; margin-top: 10px;">View Full Analysis</a>
+          </div>
+
+          <div class="dash-card">
+            <div style="display: flex; justify-content: space-between;">
+              <h3>Recent Activity</h3>
+              <a href="#" style="font-size: 12px; color: #2f6df6;">View All</a>
+            </div>
+
+            <div class="activity-item">
+              ✅
+              <div>
+                Consultation confirmed with Neha Verma
+                <span class="time">2 min ago</span>
+              </div>
+            </div>
+            <div class="activity-item">
+              ✨
+              <div>
+                New AI recommendation generated
+                <span class="time">1 hr ago</span>
+              </div>
+            </div>
+            <div class="activity-item">
+              📄
+              <div>
+                Financial report generated
+                <span class="time">3 hrs ago</span>
+              </div>
+            </div>
+            <div class="activity-item">
+              🔔
+              <div>
+                Reminder: Complete your financial profile
+                <span class="time">5 hrs ago</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tip of the day -->
+        <div class="tip-box" style="margin-top: 20px;">
+          <div>
+            <strong style="font-size: 14px;">💡 Tip of the Day</strong>
+            <p style="font-size: 13px; color: #666;">Start an emergency fund of 6 months' expenses for financial security.</p>
+          </div>
+          <a href="#" style="font-size: 13px; color: #2f6df6; font-weight: bold;">Know More →</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

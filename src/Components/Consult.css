@@ -1,0 +1,125 @@
+.consult-card {
+  max-width: 480px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  font-family: Arial, sans-serif;
+}
+
+.consult-header h3 {
+  margin: 0 0 16px 0;
+  font-size: 16px;
+}
+
+.badge-new {
+  background: #ffe4e4;
+  color: #e04848;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-left: 6px;
+}
+
+.consult-user-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+}
+
+.consult-user-info {
+  display: flex;
+  gap: 10px;
+}
+
+.consult-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.consult-name {
+  margin: 0;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.consult-role {
+  margin: 0;
+  color: #888;
+  font-size: 12px;
+}
+
+.consult-rating {
+  margin: 2px 0 0 0;
+  color: #2ecc71;
+  font-size: 12px;
+}
+
+.consult-requested {
+  text-align: right;
+}
+
+.consult-details-row {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+}
+
+.consult-label {
+  margin: 0;
+  font-size: 12px;
+  color: #888;
+}
+
+.consult-value {
+  margin: 4px 0 0 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.consult-message-box {
+  background: #f7f8fa;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 16px;
+}
+
+.consult-message-text {
+  margin: 6px 0 0 0;
+  font-size: 13px;
+  color: #444;
+  font-style: italic;
+}
+
+.consult-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-decline,
+.btn-accept {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn-decline {
+  background: #f1f1f1;
+  color: #333;
+}
+
+.btn-accept {
+  background: #2f6ffb;
+  color: #fff;
+}

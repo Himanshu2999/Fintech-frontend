@@ -1,0 +1,495 @@
+/* ============================================
+   FINTECH WEBSITE - STYLES
+   This file controls how everything looks
+   ============================================ */
+
+/* Reset some default browser spacing so design looks consistent */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #1a1a1a;
+  background-color: #ffffff;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* A wrapper class to keep content centered and not too wide */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ============ BUTTONS ============ */
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #2f6df6;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: #1e56d6;
+}
+
+.btn-outline {
+  background-color: #ffffff;
+  color: #1a1a1a;
+  border: 1px solid #cccccc;
+}
+
+.btn-outline:hover {
+  border-color: #999999;
+}
+
+/* ============ HEADER / NAVBAR ============ */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-icon {
+  width: 32px;
+  height: 32px;
+  background-color: #2f6df6;
+  color: white;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: #555555;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+  color: #2f6df6;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+/* ============ HERO SECTION ============ */
+
+.hero {
+  background-color: #eef3ff;
+  padding: 60px 20px;
+}
+
+.hero-content {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.hero-text h1 {
+  font-size: 40px;
+  line-height: 1.2;
+}
+
+.hero-text h1 span {
+  color: #2f6df6;
+}
+
+.hero-text p {
+  margin-top: 15px;
+  color: #666666;
+  max-width: 400px;
+}
+
+.hero-buttons {
+  margin-top: 25px;
+  display: flex;
+  gap: 12px;
+}
+
+.hero-highlights {
+  margin-top: 40px;
+  display: flex;
+  gap: 25px;
+}
+
+.hero-highlights div h4 {
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.hero-highlights div p {
+  font-size: 11px;
+  color: #888888;
+}
+
+.hero-image {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* Financial health score card in the hero */
+.score-card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.score-card .label {
+  font-size: 12px;
+  color: #888888;
+}
+
+.score-card .score {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.score-card .score-status {
+  color: #16a34a;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+/* ============ SECTIONS (About / Services / How it works) ============ */
+
+section {
+  padding: 60px 20px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.eyebrow {
+  color: #2f6df6;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.section-title h2 {
+  font-size: 26px;
+  margin-top: 5px;
+}
+
+.about-content {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.about-image {
+  flex: 1;
+  min-width: 280px;
+  height: 260px;
+  background-color: #eef3ff;
+  border-radius: 16px;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.about-text p {
+  color: #666666;
+  margin: 15px 0 25px;
+  line-height: 1.6;
+}
+
+.stats {
+  display: flex;
+  gap: 30px;
+}
+
+.stats div h3 {
+  font-size: 24px;
+}
+
+.stats div p {
+  font-size: 12px;
+  color: #888888;
+}
+
+/* Services cards grid */
+.services {
+  background-color: #f9fafb;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border: 1px solid #eeeeee;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: #eef3ff;
+  color: #2f6df6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.card p {
+  font-size: 13px;
+  color: #888888;
+  line-height: 1.5;
+}
+
+/* How it works steps */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 25px;
+  text-align: center;
+}
+
+.step-icon {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background-color: #eef3ff;
+  color: #2f6df6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin: 0 auto 12px;
+}
+
+.steps h3 {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.steps p {
+  font-size: 12px;
+  color: #888888;
+}
+
+/* ============ CTA BANNER ============ */
+
+.cta-banner {
+  background-color: #2f6df6;
+  color: white;
+  border-radius: 16px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.cta-banner p:first-child {
+  font-weight: bold;
+}
+
+.cta-banner p:last-child {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* ============ CONTACT + FAQ ============ */
+
+.contact-faq {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.contact-form,
+.faq-list {
+  flex: 1;
+  min-width: 300px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #dddddd;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.form-row {
+  display: flex;
+  gap: 12px;
+}
+
+.form-row input {
+  flex: 1;
+}
+
+/* FAQ accordion */
+.faq-item {
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.faq-question {
+  width: 100%;
+  padding: 14px 16px;
+  background: white;
+  border: none;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease;
+  padding: 0 16px;
+  font-size: 13px;
+  color: #888888;
+  line-height: 1.5;
+}
+
+/* When JS adds this "open" class, the answer becomes visible */
+.faq-item.open .faq-answer {
+  max-height: 200px;
+  padding-bottom: 14px;
+}
+
+.faq-item.open .faq-arrow {
+  transform: rotate(180deg);
+}
+
+.faq-arrow {
+  transition: transform 0.2s ease;
+}
+
+/* ============ FOOTER ============ */
+
+footer {
+  background-color: #111827;
+  color: #cccccc;
+  padding: 50px 20px 20px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.footer-grid h4 {
+  color: white;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.footer-grid li {
+  font-size: 13px;
+  margin-bottom: 8px;
+  color: #aaaaaa;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 12px;
+  color: #777777;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #333333;
+}
+
+/* ============ RESPONSIVE (small screens) ============ */
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hero-text h1 {
+    font-size: 30px;
+  }
+}
