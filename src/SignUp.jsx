@@ -46,11 +46,7 @@ function SignUp() {
 
               <label>Phone Number</label>
               <div className="phone-row">
-                <select className="country-code">
-                  <option>🇮🇳 +91</option>
-                  <option>🇺🇸 +1</option>
-                  <option>🇬🇧 +44</option>
-                </select>
+               
                 <input onChange={(e)=>setmobile(e.target.value)} type="tel" placeholder="Enter your phone number" />
               </div>
 
@@ -72,9 +68,6 @@ function SignUp() {
               <p className="hint-text">
                 Must be at least 8 characters with a mix of letters, numbers & symbols
               </p>
-
-              <label>Confirm Password</label>
-              <input onChange={(e) => setcpass(e.target.value)} type="password" placeholder="Confirm your password" />
 
               {/* role selector */}
               <label>I am signing up as</label>
