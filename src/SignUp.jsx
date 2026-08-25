@@ -10,7 +10,6 @@ function SignUp() {
   const [name, setname] = useState("");
   const [email, setmail] = useState("");
   const [pass, setpass] = useState("")
-  const [cpass, setcpass] = useState("")
   const [mobile , setmobile] = useState("")
   const[flag, setflag] = useState(false);
 
@@ -46,7 +45,6 @@ function SignUp() {
 
               <label>Phone Number</label>
               <div className="phone-row">
-               
                 <input onChange={(e)=>setmobile(e.target.value)} type="tel" placeholder="Enter your phone number" />
               </div>
 
